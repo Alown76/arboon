@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عربون — احجز بعربون، وخلّ الباقي علينا</title>
+<meta name="description" content="تطبيق سلة لاستقبال العربون على الطلبات المفصّلة والمسبقة، وإرسال رابط دفع الباقي تلقائياً.">
+<link rel="icon" href="icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#0B4A3D; --green2:#0E5C4A; --gold:#E9B95A; --gold-d:#B8862E; --ivory:#FBF7EE; --ink:#16231F; --muted:#5B6B66; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Cairo, Tahoma, sans-serif; background:var(--ivory); color:var(--ink); line-height:1.8; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  header { padding:22px 0; }
+  .brand { display:flex; align-items:center; gap:12px; font-weight:800; font-size:26px; color:var(--green); }
+  .brand img { width:44px; height:44px; border-radius:12px; }
+  .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; padding:40px 0 70px; }
+  h1 { font-size:46px; line-height:1.35; color:var(--green); font-weight:800; }
+  h1 span { color:var(--gold-d); }
+  .lead { font-size:20px; color:var(--muted); margin:18px 0 28px; }
+  .btn { display:inline-block; background:var(--green); color:#fff; text-decoration:none; padding:14px 28px; border-radius:14px; font-weight:800; font-size:18px; transition:transform .2s; }
+  .btn:hover { transform:translateY(-2px); }
+  .btn.alt { background:transparent; color:var(--green); border:2px solid var(--green); margin-inline-start:10px; }
+  /* animated coin */
+  .coin { position:relative; width:min(360px,80vw); aspect-ratio:1; margin:auto; }
+  .coin svg { width:100%; height:100%; }
+  .slice { transform-origin:256px 256px; animation:grow 2.4s ease-out forwards; }
+  .ring-rest { stroke-dasharray:942; stroke-dashoffset:942; animation:fill 2.2s 1.6s ease-in-out forwards; }
+  .tick { stroke-dasharray:200; stroke-dashoffset:200; animation:draw .8s 3.6s ease-out forwards; }
+  @keyframes grow { from { transform:scale(.2) rotate(-90deg); opacity:0; } to { transform:scale(1) rotate(0); opacity:1; } }
+  @keyframes fill { to { stroke-dashoffset:0; } }
+  @keyframes draw { to { stroke-dashoffset:0; } }
+  .tag { position:absolute; background:#fff; border-radius:12px; padding:6px 14px; font-weight:800; box-shadow:0 6px 20px rgba(11,74,61,.12); font-size:15px; opacity:0; animation:pop .5s forwards; }
+  .tag.t1 { top:6%; left:-4%; color:var(--gold-d); animation-delay:1.2s; }
+  .tag.t2 { bottom:8%; right:-6%; color:var(--green); animation-delay:3.2s; }
+  .tag.t3 { bottom:40%; left:-12%; color:var(--green); animation-delay:4.2s; }
+  @keyframes pop { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  section { padding:60px 0; }
+  h2 { font-size:32px; color:var(--green); margin-bottom:24px; font-weight:800; }
+  .steps { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:s; }
+  .step { background:#fff; border-radius:18px; padding:22px; box-shadow:0 4px 18px rgba(11,74,61,.06); }
+  .step::before { counter-increment:s; content:counter(s); display:inline-grid; place-items:center; width:38px; height:38px; border-radius:50%; background:var(--gold); color:var(--green); font-weight:800; margin-bottom:10px; }
+  .step b { display:block; color:var(--green); font-size:18px; }
+  .feat { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .card { background:var(--green); color:#fff; border-radius:18px; padding:24px; }
+  .card b { color:var(--gold); font-size:19px; display:block; margin-bottom:6px; }
+  .for { display:flex; flex-wrap:wrap; gap:10px; }
+  .for span { background:#fff; border:1px solid #EADFC6; border-radius:999px; padding:8px 16px; font-weight:600; }
+  .price { background:linear-gradient(135deg,var(--green2),#073A30); color:#fff; border-radius:24px; padding:40px; text-align:center; }
+  .price .n { font-size:56px; font-weight:800; color:var(--gold); }
+  footer { padding:30px 0 50px; color:var(--muted); font-size:14px; text-align:center; }
+  footer a { color:var(--green); }
+  @media (max-width:820px) {
+    .hero { grid-template-columns:1fr; text-align:center; }
+    h1 { font-size:34px; }
+    .steps, .feat { grid-template-columns:1fr; }
+    .btn.alt { margin:10px 0 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; } .ring-rest, .tick { stroke-dashoffset:0; } .tag { opacity:1; } }
+</style>
+</head>
+<body>
+<header><div class="wrap brand"><img src="icon-512.png" alt="">عربون</div></header>
+
+<div class="wrap hero">
+  <div>
+    <h1>عميلك يدفع <span>العربون</span>،<br>والباقي يوصله برابط.</h1>
+    <p class="lead">تطبيق لمتاجر سلة: استقبل العربون على الطلبات المفصّلة والمسبقة من متجرك مباشرة، ولما يجهز الطلب ينشئ <b>عربون</b> طلب الباقي ويطلّع رابط دفع جاهز للواتساب. بدون تحويلات ولا مطاردة.</p>
+    <a class="btn" href="https://apps.salla.sa/ar">ثبّت من متجر تطبيقات سلة</a>
+    <a class="btn alt" href="#how">كيف يشتغل؟</a>
+  </div>
+  <div class="coin" aria-hidden="true">
+    <svg viewBox="0 0 512 512">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D27A"/><stop offset="1" stop-color="#D9A23C"/></linearGradient></defs>
+      <circle cx="256" cy="256" r="150" fill="none" stroke="#0B4A3D" stroke-opacity=".12" stroke-width="44"/>
+      <circle class="ring-rest" cx="256" cy="256" r="150" fill="none" stroke="#0E5C4A" stroke-width="44" transform="rotate(18 256 256)"/>
+      <path class="slice" d="M256 256 L256 84 A172 172 0 0 1 419.6 202.9 Z" fill="url(#g)"/>
+      <circle cx="256" cy="256" r="104" fill="#0B4A3D"/>
+      <circle cx="256" cy="256" r="104" fill="none" stroke="url(#g)" stroke-width="10"/>
+      <path class="tick" d="M206 258 L242 292 L310 222" fill="none" stroke="url(#g)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="tag t1">عربون 30% ✓</div>
+    <div class="tag t3">رابط الباقي انرسل 📲</div>
+    <div class="tag t2">الطلب مكتمل ✓</div>
+  </div>
+</div>
+
+<section id="how"><div class="wrap">
+  <h2>كيف يشتغل؟</h2>
+  <div class="steps">
+    <div class="step"><b>منتج العربون</b>سعره = مبلغ العربون، ورمزه مثل <code>ARB-30-ABAYA</code>.</div>
+    <div class="step"><b>العميل يدفع</b>العربون من متجرك كأي طلب عادي.</div>
+    <div class="step"><b>جاهز؟</b>غيّر حالة الطلب إلى "جاهز - بانتظار الباقي".</div>
+    <div class="step"><b>عربون يكمّل</b>يحسب الباقي وينشئ طلب "بانتظار الدفع" برابط مختصر.</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>ليش عربون؟</h2>
+  <div class="feat">
+    <div class="card"><b>حساب تلقائي</b>الباقي ينحسب حسب نسبة العربون، بدون آلة حاسبة.</div>
+    <div class="card"><b>رابط ما يضيع</b>إذا انتهت مهلة الرابط، يتجدد تلقائياً.</div>
+    <div class="card"><b>بدون فوضى</b>ما يتكرر الطلب، وينلغي الباقي إذا انلغى العربون.</div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>مناسب لـ</h2>
+  <div class="for"><span>العبايات والتفصيل</span><span>الأثاث حسب الطلب</span><span>الكيك والحلويات</span><span>العطور قبل الإطلاق</span><span>المنتجات المستوردة</span><span>الحجوزات المسبقة</span></div>
+</div></section>
+
+<section><div class="wrap price">
+  <div>عرض التجار المؤسسين</div>
+  <div class="n">59 ريال / شهر</div>
+  <div>تجربة مجانية 7 أيام · السعر مثبت 12 شهراً لأول المشتركين</div>
+</div></section>
+
+<footer><div class="wrap">© 2026 عربون · <a href="privacy.html">سياسة الخصوصية</a></div></footer>
+</body>
+</html>
