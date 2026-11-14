@@ -3,230 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>عربون: العربون والحجز المسبق لمتاجر سلة</title>
-<meta name="description" content="خلّ عميلك يدفع العربون من متجرك على سلة، والباقي يوصله برابط دفع لما يجهز طلبه.">
+<title>عربون: أمين العربون في متجرك على سلة</title>
+<meta name="description" content="تطبيق سلة يخلي عميلك يدفع العربون من متجرك، ولما يجهز طلبه يوصله رابط دفع الباقي.">
 <link rel="icon" href="icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-/* Hallmark · shape: stat-led ledger · genre: modern-minimal · theme: brand · redesign: full
- * paper: ivory #FBF7EE · accent: emerald #0B4A3D · display: Cairo 800 · body: Cairo 500 · hero: split, head right, ledger left · nav: wordmark and one action · footer: wordmark over two links · signature: the deposit order turning into a balance link, built in the hero
- * axes: ivory/Cairo/emerald · posture: split · contrast: pass · fold: pass · v2.0.0 */
-/* Hallmark · pre-emit critique: P3 H3 E3 S3 R3 V2 · weakest: V, the only picture is the built ledger and the coin; a real merchant screenshot replaces it once a founding store runs */
-/* Hallmark · waive 8 · kept content sequence · the section order follows the merchant's questions: what, how, what it handles, price, doubts */
-/* Hallmark · dropped https://apps.salla.sa/ar · the app is not live in the Salla store yet; the action is a founding-merchant email until it is */
+/* Hallmark · shape: letter · genre: editorial · theme: brand · redesign: full
+ * paper: warm off-white #F6F3EC · accent: emerald #0B4A3D · display: Noto Naskh Arabic 700 · body: Noto Naskh Arabic 400 · hero: corridor, the greeting and first paragraph · nav: wordmark only · footer: a letter close signed by the character · signature: the app speaking for itself, with its own test order, 90 then 210
+ * axes: off-white/Naskh/emerald · posture: corridor · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P3 H3 E3 S3 R3 V2 · weakest: V, no picture yet; a real screenshot of the balance order in a founding store goes under the test paragraph */
+/* Hallmark · dropped https://apps.salla.sa/ar · the app is not live in the Salla store yet, the action is the email link in the first paragraph */
+/* Hallmark · dropped #how, #g · the letter explains the flow in prose, and the coin drawing is gone */
 @import url("./tokens.css");
 @import url("./base.css");
 
-:root { --display-weight: 800; --container: 1180px; }
-body { font-weight: 500; }
+:root { --display-weight: 700; --container: 720px; }
+body { font-size: 1.1875rem; line-height: 1.95; }
+.container { max-width: var(--container); }
 
-/* nav */
-.nav { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-lg); }
-.mark { display: inline-flex; align-items: center; gap: var(--space-sm); font-family: var(--font-display); font-weight: 800; font-size: var(--text-xl); color: var(--color-ink-2); text-decoration: none; }
-.mark img { width: 40px; height: 40px; border-radius: 10px; }
+.top { padding-block: var(--space-xl) 0; }
+.mark { display: inline-flex; align-items: center; gap: var(--space-xs); text-decoration: none; color: var(--color-ink); font-weight: 700; font-size: var(--text-md); }
+.mark img { width: 28px; height: 28px; border-radius: 7px; }
 
-/* buttons, eight states */
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-ink); font-weight: 800; font-size: var(--text-md);
-  text-decoration: none; border: 2px solid var(--color-accent); transition: transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out); }
-.btn:hover { background: var(--color-deep); border-color: var(--color-deep); transform: translateY(-2px); }
-.btn:active { transform: translateY(0); background: var(--color-deep); }
-.btn:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; transition: none; }
-.btn.small { min-height: 44px; padding-inline: var(--space-md); font-size: var(--text-sm); }
+.letter { padding-block: var(--space-3xl) var(--space-2xl); }
+.letter h1 { font-size: clamp(2rem, 3vw + 1rem, 2.75rem); line-height: 1.4; max-width: none; margin-bottom: var(--space-xl); }
+.letter p { max-width: 54ch; margin-bottom: var(--space-lg); }
+.letter p.date { color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-md); }
+.letter h2 { font-size: var(--text-xl); line-height: 1.5; max-width: none; margin: var(--space-2xl) 0 var(--space-md); }
+.letter ol { padding-inline-start: var(--space-lg); margin: 0 0 var(--space-lg); max-width: 54ch; }
+.letter li { margin-bottom: var(--space-xs); }
+.letter strong { font-weight: 700; }
+.num { font-variant-numeric: tabular-nums; }
+.sep { text-align: center; color: var(--color-muted); letter-spacing: 0; margin: var(--space-xl) 0; }
+code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.85em; direction: ltr; unicode-bidi: isolate; background: var(--color-paper-2); padding: 0 var(--space-2xs); border-radius: 4px; }
 
+a { color: var(--color-accent); text-decoration-thickness: 1px; transition: color var(--dur-micro) var(--ease-out); }
+a:hover { color: var(--color-ink); }
+a:active { color: var(--color-ink); text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; transition: none; }
 
-.text-link { color: var(--color-ink-2); font-weight: 700; }
-.text-link:hover { color: var(--color-deep); }
-.text-link:active { color: var(--color-ink); }
+.sign { margin-top: var(--space-2xl); }
+.sign .name { font-size: var(--text-2xl); font-weight: 700; }
+.sign p { margin-bottom: var(--space-xs); }
 
-/* hero */
-.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: var(--space-2xl); align-items: center; padding-block: var(--space-xl) var(--space-3xl); }
-.hero h1 { color: var(--color-ink-2); }
-.hero .lead { margin-block: var(--space-lg) var(--space-xl); color: var(--color-muted); }
-.hero .after { margin-top: var(--space-md); font-size: var(--text-sm); color: var(--color-muted); }
-
-/* signature: the ledger */
-.ledger { position: relative; background: var(--color-deep); color: var(--color-on-deep); border-radius: 28px; padding: var(--space-xl); min-width: 0; }
-.ledger h2 { font-size: var(--text-title); color: var(--color-on-deep); margin-bottom: var(--space-lg); max-width: none; padding-inline-end: 128px; }
-.coin { width: 112px; height: 112px; position: absolute; top: calc(var(--space-xl) * -1); inset-inline-end: var(--space-xl); }
-.coin .slice { transform-origin: 256px 256px; animation: grow 1.4s var(--ease-out); }
-@keyframes grow { from { transform: rotate(-80deg) scale(0.6); } to { transform: none; } }
-.rows { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-sm); }
-.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-md); align-items: center; padding: var(--space-md); border-radius: var(--radius-card); background: var(--color-deep-2); }
-.row.link { animation: pulse 2.4s var(--ease-in-out) 1.2s 2; }
-@keyframes pulse { 0%, 100% { transform: none; } 50% { transform: translateY(-4px); } }
-.row span { color: var(--color-on-deep-muted); font-size: var(--text-sm); display: block; }
-.row strong { font-size: var(--text-lg); font-variant-numeric: tabular-nums; }
-.row.paid strong { color: var(--color-gold-2); }
-.row.link { background: var(--color-gold); color: var(--color-deep); }
-.row.link span { color: var(--color-deep); }
-.status { font-size: var(--text-sm); font-weight: 700; }
-
-/* sections */
-section { padding-block: var(--section-gap-s); }
-.proof { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: var(--space-2xl); align-items: center; border-block: var(--rule-hair) solid var(--color-rule); }
-.proof .big { font-family: var(--font-display); font-weight: 800; font-size: clamp(5rem, 12vw, 10rem); line-height: 1; color: var(--color-ink-2); font-variant-numeric: tabular-nums; }
-.proof h2 { font-size: var(--text-2xl); max-width: 26ch; }
-.proof p { margin-top: var(--space-sm); color: var(--color-muted); }
-
-.steps { list-style: none; margin: var(--space-xl) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap-columns); counter-reset: s; }
-.steps li { border-top: 3px solid var(--color-ink-2); padding-top: var(--space-md); counter-increment: s; }
-.steps li::before { content: counter(s); display: block; font-family: var(--font-display); font-weight: 800; font-size: var(--text-3xl); color: var(--color-focus); line-height: 1; margin-bottom: var(--space-sm); }
-.steps h3 { margin-bottom: var(--space-xs); color: var(--color-ink-2); }
-.steps p { color: var(--color-muted); }
-code { font-family: var(--font-body); font-weight: 700; background: var(--color-paper-2); padding: 0 var(--space-2xs); border-radius: 6px; direction: ltr; unicode-bidi: isolate; }
-
-.handles { background: var(--color-paper-2); }
-.cases { list-style: none; margin: var(--space-xl) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-md) var(--gap-columns); }
-.cases li { background: var(--color-paper); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); padding: var(--space-lg); }
-.cases b { display: block; color: var(--color-ink-2); font-size: var(--text-lg); margin-bottom: var(--space-2xs); }
-.cases span { color: var(--color-muted); }
-
-.for ul { list-style: none; margin: var(--space-lg) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-sm); }
-.for li { border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill); padding: var(--space-xs) var(--space-md); font-weight: 700; color: var(--color-ink-2); }
-
-.price { background: var(--color-deep); color: var(--color-on-deep); border-radius: 28px; padding: var(--space-2xl) var(--space-xl); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-xl); align-items: center; }
-.price h2 { color: var(--color-on-deep); font-size: var(--text-2xl); font-variant-numeric: tabular-nums; }
-.price .amount { font-family: var(--font-display); font-weight: 800; font-size: clamp(3.5rem, 7vw, 5.5rem); line-height: 1; color: var(--color-gold); font-variant-numeric: tabular-nums; }
-.price p { color: var(--color-on-deep-muted); margin-top: var(--space-sm); }
-
-.faq dl { margin: var(--space-xl) 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xl) var(--gap-columns); }
-.faq dt { font-weight: 800; color: var(--color-ink-2); font-size: var(--text-lg); margin-bottom: var(--space-xs); }
-.faq dd { margin: 0; color: var(--color-muted); }
-
-.closing { text-align: start; }
-.closing p { margin-block: var(--space-md) var(--space-xl); color: var(--color-muted); }
-
-footer { border-top: var(--rule-hair) solid var(--color-rule); padding-block: var(--space-xl); }
-footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-md); align-items: center; }
-footer nav { display: flex; gap: var(--space-lg); }
+footer { border-top: var(--rule-hair) solid var(--color-paper-3); padding-block: var(--space-lg) var(--space-2xl); color: var(--color-muted); font-size: var(--text-sm); }
+footer .container { display: flex; flex-wrap: wrap; gap: var(--space-lg); }
 footer a { color: var(--color-muted); }
-footer a:hover { color: var(--color-ink-2); }
-footer a:active { color: var(--color-ink); }
-
-@media (max-width: 60rem) {
-  .hero, .proof, .price { grid-template-columns: minmax(0, 1fr); }
-  .hero { gap: var(--space-3xl); }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 40rem) {
-  .steps, .cases, .faq dl { grid-template-columns: minmax(0, 1fr); }
-  .ledger { padding: var(--space-lg); }
-}
-@media (prefers-reduced-motion: reduce) { .coin .slice, .row.link { animation: none; } }
 </style>
 </head>
 <body>
-<header class="container nav">
-  <a class="mark" href="#top"><img src="icon-512.png" alt="">عربون</a>
-  <a class="btn small" href="mailto:alown76@gmail.com?subject=%D8%B9%D8%B1%D8%A8%D9%88%D9%86%20-%20%D8%AA%D8%A7%D8%AC%D8%B1%20%D9%85%D8%A4%D8%B3%D8%B3">احجز مكانك</a>
+<header class="container top">
+  <a class="mark" href="./"><img src="icon-512.png" alt="">عربون</a>
 </header>
 
-<main id="top">
-  <div class="container hero">
-    <div>
-      <h1>العربون من متجرك، والباقي برابط.</h1>
-      <p class="lead">تطبيق سلة يحسب الباقي ويطلّع لعميلك رابط الدفع لما يجهز طلبه.</p>
-      <a class="btn" href="mailto:alown76@gmail.com?subject=%D8%B9%D8%B1%D8%A8%D9%88%D9%86%20-%20%D8%AA%D8%A7%D8%AC%D8%B1%20%D9%85%D8%A4%D8%B3%D8%B3">احجز مكانك كتاجر مؤسس</a>
-      <p class="after">59 ريال بالشهر، والسعر ثابت لك 12 شهر. <a class="text-link" href="#how">كيف يشتغل</a></p>
-    </div>
+<main class="container letter">
+  <h1>السلام عليكم، أنا عربون.</h1>
 
-    <figure class="ledger" aria-label="مثال طلب عباية بعربون 30 بالمية">
-      <svg class="coin" viewBox="0 0 512 512" aria-hidden="true">
-        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--color-gold-2)"/><stop offset="1" stop-color="var(--color-gold)"/></linearGradient></defs>
-        <rect width="512" height="512" rx="112" fill="var(--color-deep-2)"/>
-        <circle cx="256" cy="256" r="150" fill="none" stroke="var(--color-gold-2)" stroke-opacity="0.28" stroke-width="44"/>
-        <path class="slice" d="M256 256 L256 84 A172 172 0 0 1 419.6 202.9 Z" fill="url(#g)"/>
-        <circle cx="256" cy="256" r="104" fill="var(--color-deep)"/>
-        <circle cx="256" cy="256" r="104" fill="none" stroke="url(#g)" stroke-width="10"/>
-        <path d="M206 258 L242 292 L310 222" fill="none" stroke="url(#g)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <h2>طلب عباية تفصيل</h2>
-      <ol class="rows">
-        <li class="row paid"><div><span>العربون 30%</span><strong>90 ريال</strong></div><div class="status">مدفوع</div></li>
-        <li class="row"><div><span>الحالة</span><strong>جاهز، بانتظار الباقي</strong></div></li>
-        <li class="row link"><div><span>طلب الباقي</span><strong>210 ريال</strong></div><div class="status">انرسل الرابط</div></li>
-      </ol>
-    </figure>
+  <p>شغلتي وحدة: أمسك العربون في متجرك على سلة، ولما يجهز الطلب أذكّر العميل بالباقي. إذا متجرك يفصّل أو يجهّز حسب الطلب، <a href="mailto:alown76@gmail.com?subject=%D8%B9%D8%B1%D8%A8%D9%88%D9%86">راسلني</a> وأركّب نفسي عندك.</p>
+
+  <h2>ليش انولدت</h2>
+  <p>في منصة مقترحات سلة فيه طلب قديم: «إتاحة خيار دفع عربون للحجز المسبق»، صوّت عليه <span class="num">626</span> تاجر، وللحين «قيد الاعتبار». صاحبه كتب إن البضاعة اللي تنصنع بالطلب تحتاج عربون أول، والباقي بعدين.</p>
+  <p>والحال اليوم: يا تطلب المبلغ كامل، وفيه عميل ما يدفع كامل قبل ما يشوف شغلك. يا تاخذ العربون تحويل، وتلاحق الباقي بنفسك في الخاص.</p>
+
+  <h2>كيف أشتغل</h2>
+  <ol>
+    <li>تسوي منتج عربون، سعره مبلغ العربون، ورمزه مثل <code>ARB-30-ABAYA</code>. الرقم نسبة العربون.</li>
+    <li>العميل يدفعه من متجرك مثل أي طلب.</li>
+    <li>جهز الطلب؟ حوّل حالته إلى «جاهز - بانتظار الباقي».</li>
+    <li>أنا أحسب الباقي، وأفتح للعميل طلب «بانتظار الدفع» في متجرك، برابط دفع من سلة نفسها.</li>
+  </ol>
+  <p>جرّبوني على متجر تجريبي: عباية عربونها <span class="num">90</span> ريال بنسبة <span class="num">30</span>%. حوّلوا حالتها، فطلّعت طلب باقي بـ <span class="num">210</span> ريال. وألغوا طلب الباقي كأن مهلته خلصت، فطلّعت رابط جديد.</p>
+  <p>وإذا انلغى العربون، ألغي الباقي معه. وإذا انحوّلت الحالة مرتين، ما أكرر الطلب.</p>
+
+  <p class="sep" aria-hidden="true">*  *  *</p>
+
+  <h2>اللي ما أعرفه عن نفسي للحين</h2>
+  <p>ما جربت في متجر مفعّل فيه مدى، فما أقدر أحلف إنها تظهر في صفحة الباقي. أول متجر حقيقي بيحسمها. ورمز المنتج تكتبه بيدك، للحين ما عندي صفحة إعدادات.</p>
+
+  <h2>وين أنفع ووين لا</h2>
+  <p>أنفع للي يبدأ الشغل بعد ما يستلم العربون: تفصيل العبايات والثياب، الأثاث المفصّل، كيك المناسبات. وما أنفع لبضاعة جاهزة على الرف، لأنها ما تحتاج عربون أصلاً.</p>
+
+  <h2>أجرتي</h2>
+  <p><span class="num">59</span> ريال بالشهر، ثابتة لأول خمس متاجر سنة كاملة. ومعها تركيب وإعداد، ومتابعة أول ثلاث طلبات عربون عندك.</p>
+  <p>أرسل رابط متجرك على <a href="mailto:alown76@gmail.com?subject=%D8%B9%D8%B1%D8%A8%D9%88%D9%86">alown76@gmail.com</a>.</p>
+
+  <div class="sign">
+    <p class="name">عربون</p>
+    <p>أمين العربون في متجرك</p>
   </div>
-
-  <section class="container proof" aria-labelledby="proof-h">
-    <div class="big">626</div>
-    <div>
-      <h2 id="proof-h">تاجر في سلة طلبوا خيار العربون.</h2>
-      <p>صوّتوا في منصة مقترحات سلة على «دفع عربون للحجز المسبق»، والميزة للحين مو موجودة في المنصة.</p>
-    </div>
-  </section>
-
-  <section class="container" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">أربع خطوات، وأولها مرة وحدة.</h2>
-    <ol class="steps">
-      <li><h3>منتج العربون</h3><p>سعره مبلغ العربون، ورمزه مثل <code>ARB-30-ABAYA</code> يعني 30%.</p></li>
-      <li><h3>العميل يدفع</h3><p>العربون من متجرك مثل أي طلب.</p></li>
-      <li><h3>الطلب جهز</h3><p>حوّل حالته إلى «جاهز، بانتظار الباقي».</p></li>
-      <li><h3>عربون يكمّل</h3><p>ينشئ طلب الباقي بحالة «بانتظار الدفع» ورابط مختصر.</p></li>
-    </ol>
-  </section>
-
-  <section class="handles" aria-labelledby="handles-h">
-    <div class="container">
-      <h2 id="handles-h">الحالات اللي تضيّع وقتك، يتصرف فيها لحاله.</h2>
-      <ul class="cases">
-        <li><b>يحسب الباقي من النسبة</b><span>عربون 90 ريال بنسبة 30% يطلع باقيه 210.</span></li>
-        <li><b>الرابط من سلة نفسها</b><span>يفتح صفحة الدفع في متجرك، والمبلغ يدخل حسابك.</span></li>
-        <li><b>انتهت مهلة الرابط؟</b><span>يطلع رابط جديد لحاله، حتى 3 مرات.</span></li>
-        <li><b>ألغيت العربون؟</b><span>ينلغي طلب الباقي معه.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="container for" aria-labelledby="for-h">
-    <h2 id="for-h">مناسب للي يجهّز قبل ما يسلّم.</h2>
-    <ul>
-      <li>العبايات والتفصيل</li>
-      <li>الأثاث حسب الطلب</li>
-      <li>الكيك والحلويات</li>
-      <li>العطور قبل الإطلاق</li>
-      <li>البضاعة المستوردة</li>
-    </ul>
-  </section>
-
-  <section class="container">
-    <div class="price">
-      <div>
-        <h2>سعر التجار المؤسسين</h2>
-        <p>نركّب لك التطبيق ونتابع معك أول 3 طلبات عربون بنفسنا.</p>
-      </div>
-      <div>
-        <div class="amount">59 ريال</div>
-        <p>بالشهر، ثابت لك 12 شهر</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="container faq" aria-labelledby="faq-h">
-    <h2 id="faq-h">أسئلة التجار</h2>
-    <dl>
-      <div><dt>وين يدفع العميل الباقي؟</dt><dd>في صفحة الدفع حقت متجرك على سلة، والمبلغ يدخل حسابك مثل أي طلب.</dd></div>
-      <div><dt>هل يظهر مدى في رابط الباقي؟</dt><dd>الرابط يعرض طرق الدفع المفعّلة في متجرك. نتأكد حالياً مع سلة من ظهور مدى والبطاقات، وبنحدّث هالإجابة.</dd></div>
-      <div><dt>إذا العميل كنسل، يرجع العربون؟</dt><dd>هذي سياستك، وضّحها في صفحة المنتج. التطبيق يلغي طلب الباقي تلقائياً.</dd></div>
-      <div><dt>أحتاج موظف تقني؟</dt><dd>لا. التطبيق يشتغل داخل سلة، وإعداده ثلاث خطوات.</dd></div>
-    </dl>
-  </section>
-
-  <section class="container closing">
-    <h2>أول 5 تجار نشتغل معهم بنفسنا.</h2>
-    <p>راسلنا ونرتّب التركيب مع أول طلب عربون عندك.</p>
-    <a class="btn" href="mailto:alown76@gmail.com?subject=%D8%B9%D8%B1%D8%A8%D9%88%D9%86%20-%20%D8%AA%D8%A7%D8%AC%D8%B1%20%D9%85%D8%A4%D8%B3%D8%B3">احجز مكانك كتاجر مؤسس</a>
-  </section>
 </main>
 
 <footer>
   <div class="container">
-    <a class="mark" href="#top"><img src="icon-512.png" alt="">عربون</a>
-    <nav aria-label="روابط"><a href="privacy.html">سياسة الخصوصية</a><a href="promo.html">الفيديو التعريفي</a></nav>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="promo.html">فيديو قصير عن الفكرة</a>
   </div>
 </footer>
 </body>

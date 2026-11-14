@@ -8,11 +8,11 @@
   --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
   --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
   --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
-  --color-paper: #FBF7EE; --color-paper-2: #F3ECDC; --color-paper-3: #E9DFC8;
-  --color-ink: #10231D; --color-ink-2: #0B4A3D; --color-muted: #55665F;
+  --color-paper: #F6F3EC; --color-paper-2: #ECE7DC; --color-paper-3: #E2DCCF;
+  --color-ink: #1C1A17; --color-ink-2: #1C1A17; --color-muted: #6A645A;
   --color-rule: #DCCFB2; --color-deep: #073A30; --color-deep-2: #0E5C4A; --color-on-deep: #F7F1E3; --color-on-deep-muted: #BFD3CA; --color-gold: #E9B95A; --color-gold-2: #F6D27A;
-  --color-accent: #0B4A3D; --color-accent-ink: #FBF7EE; --color-focus: #B8862E;
-  --font-display: "Cairo", ui-sans-serif, system-ui, sans-serif; --font-body: "Cairo", ui-sans-serif, system-ui, sans-serif; --font-outlier: var(--font-body);
+  --color-accent: #0B4A3D; --color-accent-ink: #F6F3EC; --color-focus: #0B4A3D;
+  --font-display: "Noto Naskh Arabic", ui-serif, serif; --font-body: "Noto Naskh Arabic", ui-serif, serif; --font-outlier: var(--font-body);
   --radius-card: 14px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
   --tracking-display: -0.02em;
 }
