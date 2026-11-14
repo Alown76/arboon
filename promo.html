@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عربون — فيديو تعريفي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  /* Vertical 9:16 promo, ~20s loop. Record it with any screen recorder for Reels/TikTok/Snap. */
+  :root { --green:#0B4A3D; --gold:#E9B95A; --ivory:#FBF7EE; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; background:#000; }
+  body { display:grid; place-items:center; font-family:Cairo, Tahoma, sans-serif; }
+  .stage { position:relative; width:min(100vw, 56.25vh); aspect-ratio:9/16; overflow:hidden;
+           background:radial-gradient(120% 80% at 50% 0%, #0E5C4A, #062E26); color:#fff; }
+  .scene { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+           text-align:center; padding:9%; opacity:0; animation:show 20s infinite; }
+  .s1 { animation-delay:0s; } .s2 { animation-delay:4s; } .s3 { animation-delay:8s; } .s4 { animation-delay:12s; } .s5 { animation-delay:16s; }
+  @keyframes show { 0% { opacity:0; transform:translateY(4%); } 3% { opacity:1; transform:none; } 18% { opacity:1; } 20%,100% { opacity:0; } }
+  h1 { font-size:clamp(26px, 6.5vh, 64px); line-height:1.35; font-weight:800; }
+  p { font-size:clamp(16px, 3.2vh, 32px); margin-top:3%; opacity:.9; font-weight:600; }
+  .gold { color:var(--gold); }
+  .chip { display:inline-block; background:#fff; color:var(--green); border-radius:999px; padding:1.2% 5%; font-weight:800;
+          font-size:clamp(14px, 2.8vh, 28px); margin:2%; box-shadow:0 8px 30px rgba(0,0,0,.25); }
+  .phone { width:62%; aspect-ratio:9/16; background:#F4F1E8; border-radius:28px; margin-top:5%; padding:6%; color:#16231F;
+           display:flex; flex-direction:column; gap:6%; box-shadow:0 20px 60px rgba(0,0,0,.4); }
+  .bubble { background:#fff; border-radius:16px; padding:6%; font-size:clamp(12px, 2.2vh, 22px); text-align:right; font-weight:600; }
+  .bubble.me { background:#DCF8C6; align-self:flex-start; }
+  .link { color:#0B6F7D; text-decoration:underline; }
+  svg.coin { width:55%; margin-bottom:6%; }
+  .slice { transform-origin:256px 256px; animation:spin 4s infinite; }
+  @keyframes spin { 0% { transform:scale(.3) rotate(-90deg); } 40%,100% { transform:none; } }
+  .cta { background:var(--gold); color:var(--green); border-radius:18px; padding:3% 8%; font-weight:800; margin-top:6%;
+         font-size:clamp(18px, 3.6vh, 36px); }
+  .sad { font-size:clamp(40px, 10vh, 100px); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="scene s1">
+    <div class="sad">😮‍💨</div>
+    <h1>تاخذ العربون تحويل…<br>وتطارد العميل <span class="gold">على الباقي؟</span></h1>
+  </div>
+  <div class="scene s2">
+    <svg class="coin" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D27A"/><stop offset="1" stop-color="#D9A23C"/></linearGradient></defs>
+      <circle cx="256" cy="256" r="150" fill="none" stroke="#F6D27A" stroke-opacity=".28" stroke-width="44"/>
+      <path class="slice" d="M256 256 L256 84 A172 172 0 0 1 419.6 202.9 Z" fill="url(#g)"/>
+      <circle cx="256" cy="256" r="104" fill="#0B4A3D"/><circle cx="256" cy="256" r="104" fill="none" stroke="url(#g)" stroke-width="10"/>
+      <path d="M206 258 L242 292 L310 222" fill="none" stroke="url(#g)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>عميلك يدفع <span class="gold">العربون</span><br>من متجرك مباشرة</h1>
+    <p>عباية · أثاث · كيك · طلب مسبق</p>
+  </div>
+  <div class="scene s3">
+    <h1>جهز الطلب؟</h1>
+    <div><span class="chip">جاهز - بانتظار الباقي ✓</span></div>
+    <p>غيّر الحالة… وخلاص.</p>
+  </div>
+  <div class="scene s4">
+    <h1>والباقي يوصله <span class="gold">برابط</span></h1>
+    <div class="phone">
+      <div class="bubble">عبايتك جاهزة 🎉<br>الباقي: <b>210 ريال</b><br><span class="link">mtjr.at/…</span></div>
+      <div class="bubble me">تم الدفع ✅</div>
+    </div>
+  </div>
+  <div class="scene s5">
+    <svg class="coin" viewBox="0 0 512 512" style="width:40%"><rect width="512" height="512" rx="112" fill="#0E5C4A"/>
+      <circle cx="256" cy="256" r="150" fill="none" stroke="#F6D27A" stroke-opacity=".28" stroke-width="44"/>
+      <path d="M256 256 L256 84 A172 172 0 0 1 419.6 202.9 Z" fill="#E9B95A"/>
+      <circle cx="256" cy="256" r="104" fill="#0B4A3D"/><circle cx="256" cy="256" r="104" fill="none" stroke="#E9B95A" stroke-width="10"/>
+      <path d="M206 258 L242 292 L310 222" fill="none" stroke="#E9B95A" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>عربون</h1>
+    <p>احجز بعربون، وخلّ الباقي علينا</p>
+    <div class="cta">في متجر تطبيقات سلة</div>
+  </div>
+</div>
+</body>
+</html>
